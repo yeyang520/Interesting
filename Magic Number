@@ -1,0 +1,55 @@
+import java.util.Random;
+
+public class Hello {
+    public static void main(String[] args) {
+        // 用随机数赋值，创造魔方矩阵，输出次数
+        System.out.print(magic());
+
+    }
+
+    private static int magic() {
+        int count = 0;
+        while (true) {
+            Random random = new Random();
+            int a[][] = new int[3][3];
+            for (int i = 0; i < a.length; ++i) {
+                for (int j = 0; j < a[i].length; ++j) {
+                    a[i][j] = random.nextInt(10);
+                }
+            }
+            count++;
+            if (isMagic(a) == true) {
+                print(a);
+                break;
+            }
+        }
+        return count;
+    }
+
+    // 判断是否位魔方数组
+    public static boolean isMagic(int a[][]) {
+        final int count = a[0][0] + a[0][1] + a[0][2];
+        for (int i = 0; i < a.length; ++i) {
+            if ((a[i][0] + a[i][1] + a[i][2]) != count || (a[0][i] + a[1][i] + a[2][i]) != count) {
+                return false;
+            }
+        }
+        if ((a[0][0] + a[1][1] + a[2][2]) != count || (a[0][2] + a[1][1] + a[2][0]) != count) {
+            return false;
+        }
+        return true;
+    }
+    
+
+    // 输出二维数组
+    private static void print(int a[][]) {
+        System.out.println();
+        System.out.println();
+        for (int i = 0; i < a.length; ++i) {
+            for (int x : a[i]) {
+                System.out.printf("%3d", x);
+            }
+            System.out.println();
+        }
+    }
+}
