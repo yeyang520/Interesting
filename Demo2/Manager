@@ -1,0 +1,128 @@
+package demo2;
+import static java.lang.System.out;
+import java.util.Scanner;
+import java.util.Random;
+
+public class StuManager {
+	/*
+	 * 专业信息string
+	 * 班级信息string
+	 * 年级信息int
+	 * 辅导员string
+	 * 学生信息student[]
+	 * */
+	 private String ProIn;
+	 private String GraIn;
+	 private int ClaIn;
+	 private String Tutor;
+	 private Student[] student;
+
+	 //构造
+	 //有参构造函数
+	public StuManager(String ProIn,String GraIn,int ClaIn,String Tutor,Student student[])
+	{
+		//构造的同时输入辅导员信息
+		this.ProIn = ProIn;
+		this.GraIn = GraIn;
+		this.ClaIn = ClaIn;
+		this.Tutor = Tutor;
+		this.student = student;
+	}
+	//无参构造函数创建学生数据类初始化信息
+	public StuManager()
+	{
+		
+	}
+	
+	
+	//输出所有学生信息
+	public void printAll()
+	{
+		int len = student.length;
+		for(int i=0;i<len;++i)
+		{
+			student[i].disPlay();//调用Student内的展示函数
+		}
+	}
+	
+	//判断学生是否在该数据中
+	public boolean isInStu()
+	{
+		String Name,StuNumber;
+		Scanner in = new Scanner(System.in);
+		out.println("请输入要查询学生的姓名:");
+		Name = in.next();
+		out.println("请输入要查询学生的学号:");
+		StuNumber = in.next();
+		for(int i=0;i<student.length;++i)
+		{
+			if(Name.equals(student[i].getName()) &&StuNumber.equals(student[i].getNumber()))
+			{
+				out.println("查询成功！");
+				student[i].disPlay();
+				return true;
+			}
+		}
+		out.println("对不起,查无此人!!");
+		return false;
+	}
+	 
+	//随机输出n个学生信息
+	public void ranPrint(int n)
+	{
+		Random random = new Random();
+		// boolean is[] = new boolean[student.length];
+		// while(count!=n)
+		// {
+		// 	int cnt = random.nextInt(student.length-1);
+		// 	if(!is[cnt])continue;
+		// 	student[cnt].disPlay();
+		// 	count++;
+		// 	is[cnt] = false;
+		// }
+		out.println("开始随机选择"+n+"个幸运儿!");
+		for(int i=0;i<n;++i)
+		{
+			student[random.nextInt(student.length-1)].disPlay();
+		}
+	}
+	//返回有多少学生
+	public int HowStu()
+	{
+		return student.length;
+	}
+
+	
+	//get set
+	public String getProIn() {
+		return ProIn;
+	}
+	public void setProIn(String proIn) {
+		ProIn = proIn;
+	}
+	public String getGraIn() {
+		return GraIn;
+	}
+	public void setGraIn(String graIn) {
+		GraIn = graIn;
+	}
+	public int getClaIn() {
+		return ClaIn;
+	}
+	public void setClaIn(int claIn) {
+		ClaIn = claIn;
+	}
+	public String getTutor() {
+		return Tutor;
+	}
+	public void setTutor(String tutor) {
+		Tutor = tutor;
+	}
+	public Student[] getStudent() {
+		return student;
+	}
+	public void setStudent(Student[] student) {
+		this.student = student;
+		
+	}
+}
