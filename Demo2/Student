@@ -1,0 +1,145 @@
+package demo2;
+import static java.lang.System.out;
+
+public class Student {
+	/*
+	 * 姓名
+	 * 学号
+	 * 性别
+	 * 年龄
+	 * 身高
+	 * 体重
+	 * 电话号码
+	 * 籍贯
+	 * 年纪信息
+	 * 班级
+	 * 是否毕业
+	 */
+	private String Name;
+	private String Number;
+	private char Sex;
+	private int Age;
+	private float Height;
+	private double Weight;
+	private String Telephone;
+	private String Place;
+	private String ClassInformation;
+	private int Grade;
+	private boolean isvalid;
+
+	// 构造函数
+	Student() {
+
+	}
+
+	Student(String Name, String Number, char Sex, int Age, float Height, double Weight, String Telephone, String Place,
+			String ClassInformation, int Grade, boolean isvalid) {
+		this.Name = Name;
+		this.Number = Number;
+		this.Sex = Sex;
+		this.Age = Age;
+		this.Height = Height;
+		this.Weight = Weight;
+		this.Telephone = Telephone;
+		this.Place = Place;
+		this.ClassInformation = ClassInformation;
+		this.Grade = Grade;
+		this.isvalid = isvalid;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getNumber() {
+		return Number;
+	}
+
+	public void setNumber(String number) {
+		Number = number;
+	}
+
+	public char getSex() {
+		return Sex;
+	}
+
+	public void setSex(char sex) {
+		Sex = sex;
+	}
+
+	public int getAge() {
+		return Age;
+	}
+
+	public void setAge(int age) {
+		Age = age;
+	}
+
+	public float getHeight() {
+		return Height;
+	}
+
+	public void setHeight(float height) {
+		Height = height;
+	}
+
+	public double getWeight() {
+		return Weight;
+	}
+
+	public void setWeight(double weight) {
+		Weight = weight;
+	}
+
+	public String getTelephone() {
+		return Telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		Telephone = telephone;
+	}
+
+	public String getPlace() {
+		return Place;
+	}
+
+	public void setPlace(String place) {
+		Place = place;
+	}
+
+	public String getClassInformation() {
+		return ClassInformation;
+	}
+
+	public void setClassInformation(String classInformation) {
+		ClassInformation = classInformation;
+	}
+
+	public int getGrade() {
+		return Grade;
+	}
+
+	public void setGrade(int grade) {
+		Grade = grade;
+	}
+
+	public boolean isIsvalid() {
+		return isvalid;
+	}
+
+	public void setIsvalid(boolean isvalid) {
+		this.isvalid = isvalid;
+	}
+
+	// 输出该学生的所有信息
+	public void disPlay() {
+		out.println("学生姓名：" + Name + " " + "学号： " + Number + " " + "性别: " + Sex + "  年龄：" + Age + "  " + "身高：" + Height
+				+ "  体重：" + Weight + "  电话号码：" + Telephone + "  籍贯：" + Place + "  班级信息：" + ClassInformation + "  班级" + Grade
+				+ "  是否毕业：" + isvalid);
+	}
+
+}
