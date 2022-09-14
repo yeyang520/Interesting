@@ -1,0 +1,87 @@
+package demo2;
+import static java.lang.System.out;
+import java.util.Scanner;
+
+
+public class StuData {
+	private int number;
+	private Student[] student;
+	
+
+
+	//传入学生数组不用自己构造
+	public StuData(int number, Student[] student) {
+		this.number = number;
+		this.student = student;
+	}
+	//无参构造自动构建数组初始化信息
+	StuData()
+	{
+		initStuData();
+	}
+
+	public int getNumber() {
+		return number;
+	}
+	public void setNumber(int number) {
+		this.number = number;
+	}
+	public Student[] getStudent() {
+		return student;
+	}
+	public void setStudent(Student[] student) {
+		this.student = student;
+	}
+	
+	//返回初始化的学生信息
+	public Student[] initStuData()
+	{
+		Scanner in = new Scanner(System.in);
+		out.println("请输入要创建多少学生:");
+		number = in.nextInt();
+		student = new Student[number];
+		for(int i=0;i<number;++i)
+		{
+			student[i] = new Student();
+			StdSet(student[i],i+1);
+		}
+		return student;
+	}
+	
+	
+
+	//初始化学生信息
+	public static void StdSet(Student student, int i) {
+			Scanner in = new Scanner(System.in);
+			out.println("请输入第  " + i + "个学生的姓名:");
+			student.setName(in.next());
+			out.println("学号:");
+			student.setNumber(in.next());
+			out.println("性别:");
+			student.setSex(in.next().charAt(0));
+			out.println("年龄");
+			student.setAge(in.nextInt());
+			out.println("身高:");
+			student.setHeight(in.nextFloat());
+			out.println("体重:");
+			student.setWeight(in.nextDouble());
+			out.println("联系电话:");
+			student.setTelephone(in.next());
+			out.println("籍贯:");
+			student.setPlace(in.next());
+			out.println("年级信息:");
+			student.setClassInformation(in.next());
+			out.println("班级:");
+			student.setGrade(in.nextInt());
+			out.println("是否毕业(1为毕业):");
+			int is = in.nextInt();
+			if (is == 1)
+				student.setIsvalid(true);
+			else
+				student.setIsvalid(false);
+		}
+	
+
+	
+	
+}
