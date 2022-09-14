@@ -1,0 +1,25 @@
+package demo2;
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// 创建学生数据类
+		StuData stuData = new StuData();
+		// 创建管理对象类
+		/*
+		 * 专业信息string,班级信息string,年级信息int,辅导员string,学生信息student[]
+		*/
+		StuManager Manager = new StuManager("软件工程", "2", 2, "Mrs.Gao", stuData.getStudent());
+		//输出所有学生数据
+		Manager.printAll();
+		//判断某个学上是否在学上数组中
+		if(Manager.HowStu()!=0)
+			Manager.isInStu();
+		else out.println("没有学生，查询失败");//如果没有学生，则无法查询
+		//随机输出n个学生信息
+		Manager.ranPrint(3);
+	}
+
+}
